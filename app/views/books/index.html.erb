@@ -1,0 +1,32 @@
+<h1>Books#index</h1>
+
+<%= link_to "Add New Book", new_book_url %>
+
+<table>
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Author</td>
+      <td>Genre</td>
+      <td>Price</td>
+      <td>Published Date</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.genre %></td>
+        <td>$<%= book.price %></td>
+        <td><%= book.published_date %></td>
+        <td><%= link_to "View", book_path(book) %></td>
+        <td><%= link_to "Edit", edit_book_url(book) %></td>
+        <td><%= link_to "Delete", book_delete_url(book) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+<%= link_to "Home", books_path %>
+
+<h1>Books#new</h1>
+
+<%= form_with model: @book do |form| %>
+  <table>
+    <tbody>
+      <tr>
+        <td>Author</td>
+        <td><%= form.text_field :author, placeholder: "Billy Bob Joe" %></td>
+      </tr>
+      <tr>
+        <td>Title</td>
+        <td><%= form.text_field :title, placeholder: "My Book" %></td>
+      </tr>
+      <tr>
+        <td>Genre</td>
+        <td><%= form.select :genre, Book.genres %></td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td>$<%= form.number_field :price, step: :any, placeholder: 0 %></td>
+      </tr>
+      <tr>
+        <td>Published Date</td>
+        <td><%= form.date_select :published_date, :start_year=>1700,:end_year=>2020 %></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <%= form.submit %>
+  <% end %>
